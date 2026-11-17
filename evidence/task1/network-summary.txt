@@ -1,0 +1,6 @@
+Subnet: 172.30.0.0/24
+Bridge: br-hw4
+hw4-mock-c2-1 172.30.0.66/24
+hw4-agent-node-1 172.30.0.10/24
+hw4-web-lab-1 172.30.0.40/24
+

@@ -1,0 +1,88 @@
+name: hw4
+services:
+  agent-node:
+    command:
+      - sleep
+      - infinity
+    image: hw4-lab:local
+    init: true
+    networks:
+      hw4net:
+        ipv4_address: 172.30.0.10
+    volumes:
+      - type: bind
+        source: /home/mstar/csce465-agentsec/CSCE-465-765-HW4/mock_skill.sh
+        target: /app/mock_skill.sh
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /home/mstar/csce465-agentsec/CSCE-465-765-HW4/fake_secrets.txt
+        target: /app/fake_secrets.txt
+        read_only: true
+        bind: {}
+    build:
+      context: /home/mstar/csce465-agentsec/CSCE-465-765-HW4
+      dockerfile: Dockerfile
+  mock-c2:
+    command:
+      - python
+      - -u
+      - /app/c2.py
+    image: hw4-lab:local
+    init: true
+    networks:
+      hw4net:
+        ipv4_address: 172.30.0.66
+    volumes:
+      - type: bind
+        source: /home/mstar/csce465-agentsec/CSCE-465-765-HW4/c2.py
+        target: /app/c2.py
+        read_only: true
+        bind: {}
+      - type: volume
+        source: c2-data
+        target: /data
+        volume: {}
+    build:
+      context: /home/mstar/csce465-agentsec/CSCE-465-765-HW4
+      dockerfile: Dockerfile
+  web-lab:
+    command:
+      - python
+      - -m
+      - http.server
+      - "8000"
+      - --bind
+      - 0.0.0.0
+      - --directory
+      - /web
+    image: hw4-lab:local
+    init: true
+    networks:
+      hw4net:
+        ipv4_address: 172.30.0.40
+    volumes:
+      - type: bind
+        source: /home/mstar/csce465-agentsec/CSCE-465-765-HW4/web
+        target: /web
+        read_only: true
+        bind: {}
+    build:
+      context: /home/mstar/csce465-agentsec/CSCE-465-765-HW4
+      dockerfile: Dockerfile
+networks:
+  hw4net:
+    name: hw4net
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: br-hw4
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+volumes:
+  c2-data:
+    name: hw4_c2-data
+x-lab:
+  build: .
+  image: hw4-lab:local
+  init: true

@@ -1,0 +1,4 @@
+NAME               IMAGE           COMMAND                  SERVICE      CREATED         STATUS                  PORTS
+hw4-agent-node-1   hw4-lab:local   "sleep infinity"         agent-node   2 seconds ago   Up 1 second             
+hw4-mock-c2-1      hw4-lab:local   "python -u /app/c2.py"   mock-c2      2 seconds ago   Up Less than a second   
+hw4-web-lab-1      hw4-lab:local   "python -m http.serv…"   web-lab      2 seconds ago   Up 1 second             
