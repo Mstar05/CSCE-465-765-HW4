@@ -750,32 +750,4 @@ Only remove volumes if the stored mock-C2 evidence is no longer needed.
 
 Retain packet captures and report evidence until grading is complete.
 
-## 13. Submission
-
-The final submission should include:
-
-```text
-hw4/
-├── README.md
-├── report.pdf
-├── AI_USAGE.md
-├── docker-compose.yml
-├── Dockerfile
-├── c2.py
-├── mock_skill.sh
-├── fake_secrets.txt
-├── web/
-│   ├── benign.html
-│   └── adversarial.html
-├── firewall.sh
-├── firewall-reset.sh
-└── local.rules
-```
-
-Include any additional AI-use disclosures required for both group members.
-
-The report should contain screenshots or command outputs demonstrating the results of each task.
-
-The README is intended to allow another user to build the Docker environment, reproduce the simulated attack, inspect the captured traffic, verify the firewall, and evaluate the Suricata rules.
-
 **Reproducibility note:** The commands should be verified from a clean environment before final submission. The README documents the team's recorded experiments but has not independently been tested end-to-end on a fresh VM.
