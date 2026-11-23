@@ -10,7 +10,7 @@ I used ChatGPT to assist with implementing, understanding, testing, and document
 AI_LOG_SAHOO.html
 
 **AI Conversation Chat link:** 
-https://chatgpt.com/share/6b0388a1-01b4-83ea-b9d1-8ec84cc51e4b
+https://chatgpt.com/share/6b0393f6-0888-83ea-a0ab-ed298b726fd8
 
 **What I used:**  
 I used ChatGPT's explanations and suggestions to help develop the `firewall.sh` and `firewall-reset.sh` scripts for Task 3 and the three detection rules in `local.rules` for Task 4. I also used AI assistance to understand the firewall verification tests, interpret Suricata alerts, and identify preventive controls, detective controls, and trust boundaries for Task 5.
